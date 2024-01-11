@@ -10,6 +10,8 @@ namespace ReadingStoreWebApp.Models
         [Required]
         [MaxLength(50)]
         public string? BookName { get; set; }
+        [Required, MaxLength(50)]
+        public string? AuthorName { get; set; }
         public double Price { get; set; }
         public string? Image { get; set; }
         [Required]
