@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace ReadingStoreWebApp.Controllers
@@ -10,20 +10,20 @@ namespace ReadingStoreWebApp.Controllers
 
         public HomeController(ILogger<HomeController> logger, IHomeRepository homeRepository)
         {
-            _logger = logger;
             _homeRepository = homeRepository;
+            _logger = logger;
         }
 
-        public async Task<IActionResult> Index(string sTerm = "", int genreId = 0)
+        public async Task<IActionResult> Index(string sterm="",int genreId=0)
         {
-            IEnumerable<Book> books = await _homeRepository.GetBooks(sTerm, genreId);
+            IEnumerable<Book> books = await _homeRepository.GetBooks(sterm, genreId);
             IEnumerable<Genre> genres = await _homeRepository.Genres();
             BookDisplayModel bookModel = new BookDisplayModel
             {
-                Books = books,
-                Genres = genres,
-                STerm = sTerm,
-                GenreId = genreId
+              Books=books,
+              Genres=genres,
+              STerm=sterm,
+              GenreId=genreId
             };
             return View(bookModel);
         }
