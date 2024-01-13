@@ -27,7 +27,7 @@ namespace ReadingStoreWebApp.Data
             var userExistsInDb = await userMgr.FindByEmailAsync(admin.Email);
             if (userExistsInDb is null)
             {
-                await userMgr.CreateAsync(admin, "Admin7qagcja.");
+                await userMgr.CreateAsync(admin, "Qwert123!");
                 await userMgr.AddToRoleAsync(admin, Roles.Admin.ToString());
             }
         }
